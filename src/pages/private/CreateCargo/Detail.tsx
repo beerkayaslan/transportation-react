@@ -40,7 +40,7 @@ export default function Detail() {
     const getDiscount = useGetDiscountbyCode();
     const { toast } = useToast();
 
-    const { register, handleSubmit, formState: { errors } } = useForm<DetailContentProps>();
+    const { handleSubmit, formState: { errors } } = useForm<DetailContentProps>();
 
     const [loading, setLoading] = useState(false);
 
