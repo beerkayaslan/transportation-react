@@ -82,7 +82,7 @@ export default function Detail() {
         const x = (city1Coordinates?.coordinates.lon + "," + city1Coordinates?.coordinates.lat).trim();
         const y = (city2Coordinates?.coordinates.lon + "," + city2Coordinates?.coordinates.lat).trim();
 
-        const url = `http://router.project-osrm.org/route/v1/driving/${x};${y}?overview=false`;
+        const url = `https://router.project-osrm.org/route/v1/driving/${x};${y}?overview=false`;
 
         if (city1Coordinates && city2Coordinates) {
             fetch(url)
