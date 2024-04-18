@@ -14,6 +14,9 @@ const DiscountDetail = Loadable(lazy(() => import('@/pages/private/Discount/Deta
 
 const FollowTransporters = Loadable(lazy(() => import('@/pages/private/FollowTransporters/Index')));
 
+const Cargos = Loadable(lazy(() => import('@/pages/private/CreateCargo/Index')));
+const CargosDetail = Loadable(lazy(() => import('@/pages/private/CreateCargo/Detail')));
+
 const Loader = Loadable(lazy(() => import('@/components/Loader')));
 
 
@@ -32,13 +35,18 @@ export default function Router() {
                     {
                         user?.user?.role === Role.TRANSPORTER && (
                             <Route path="" Component={Discount}>
-                                <Route path="transporters/discounts" Component={DiscountDetail} />
+                                <Route path="transporters/discounts/new" Component={DiscountDetail} />
                             </Route>
                         )
                     }
-                       {
+                    {
                         user?.user?.role === Role.CUSTOMER && (
-                            <Route path="" Component={FollowTransporters} />
+                            <>
+                                <Route path="" Component={FollowTransporters} />
+                                <Route path="customers/create-cargo" Component={Cargos}>
+                                    <Route path="new" Component={CargosDetail} />
+                                </Route>
+                            </>
                         )
                     }
                     <Route path="*" element={<Navigate to="/" />} />

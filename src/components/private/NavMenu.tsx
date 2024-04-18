@@ -12,6 +12,11 @@ export const customerNavItems = [
         name: "Transporters",
         to: "/"
     },
+    {
+        icon: Package2,
+        name: "Cargos",
+        to: "/customers/create-cargo"
+    },
 ];
 
 

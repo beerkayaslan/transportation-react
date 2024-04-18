@@ -14,9 +14,10 @@ interface IHeaderProps {
     dataUrl: string;
     setDeleteDialogId: (id: string) => void;
     isSelectedCheckbox: boolean;
+    actions: boolean;
 }
 
-function Header({ inputValue, handleChange, table, dataUrl, setDeleteDialogId, isSelectedCheckbox, }: IHeaderProps) {
+function Header({ inputValue, handleChange, table, dataUrl, setDeleteDialogId, isSelectedCheckbox, actions }: IHeaderProps) {
 
     const removeHandle = useCallback(() => {
         const selectedRows = table.getSelectedRowModel().rows;
@@ -52,12 +53,16 @@ function Header({ inputValue, handleChange, table, dataUrl, setDeleteDialogId, i
                     Remove
                 </Button>
             }
-            <Link to={`/${dataUrl}`}>
-                <Button variant="default" className="ml-4 gap-x-1">
-                    <CirclePlus className="h-4 w-4" />
-                    Add New
-                </Button>
-            </Link>
+            {
+                actions && (
+                    <Link to={`/${dataUrl}/new`}>
+                        <Button variant="default" className="ml-4 gap-x-1">
+                            <CirclePlus className="h-4 w-4" />
+                            Add New
+                        </Button>
+                    </Link>
+                )
+            }
 
             <div className="ml-auto flex gap-x-2 items-center">
                 <DropdownMenu>

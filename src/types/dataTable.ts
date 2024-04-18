@@ -12,7 +12,7 @@ export interface IDataTable {
     dataUrl: string;
     updateUrl?: string;
     searchKeys: string[];
-    actions: boolean;
+    actions?: boolean;
     columns: {
         columnRender?: any;
         title: string;

@@ -172,7 +172,7 @@ export default function DataTable(dataTableProps: IDataTable) {
             }
             <div className="w-full">
                 {
-                    <Header inputValue={inputValue} handleChange={handleChange} table={table} columnVisibility={columnVisibility} dataUrl={dataTableProps.dataUrl} setDeleteDialogId={setDeleteDialogId} isSelectedCheckbox={isSelectedCheckbox} />
+                    <Header inputValue={inputValue} handleChange={handleChange} table={table} columnVisibility={columnVisibility} dataUrl={dataTableProps.dataUrl} setDeleteDialogId={setDeleteDialogId} isSelectedCheckbox={isSelectedCheckbox} actions={actions} />
                 }
                 {
                     <Body table={table} isLoading={isLoading} columns={columns} />

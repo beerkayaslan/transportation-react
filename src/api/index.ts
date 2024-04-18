@@ -98,7 +98,32 @@ export const deleteTransporterFollow = async (data: TransporterDetailContentProp
     try {
         const response = await instance.delete(
             `/customers/transporters/${data.transporterId}`,
-            );
+        );
+        return response.data;
+    } catch (error: any) {
+        throw new Error(String(error.response.data.message));
+    }
+}
+
+export const getDiscountbyCode = async ({
+    discountCode, transporter
+}: {
+    discountCode: string;
+    transporter: string;
+}) => {
+    try {
+        const response = await instance.get(`/transporters/discounts/${discountCode}?transporter=${transporter}`);
+        return response.data;
+    } catch (error: any) {
+        throw new Error(String(error.response.data.message));
+    }
+}
+
+export const postCargos = async (data: any) => {
+    try {
+        const response = await instance.post(
+            '/customers/create-cargo',
+            data);
         return response.data;
     } catch (error: any) {
         throw new Error(String(error.response.data.message));
