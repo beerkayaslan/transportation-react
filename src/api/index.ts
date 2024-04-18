@@ -2,7 +2,7 @@ import axios from 'axios';
 import { IDataTableApi, IDeleteDataTable } from '@/types/dataTable';
 import { DetailContentProps as DiscountDetailContentProps } from '@/pages/private/Discount/Detail';
 import { DetailContentProps as TransporterDetailContentProps } from '@/pages/private/FollowTransporters/Index';
-export const apiUrl = 'http://localhost:3000/v1/';
+export const apiUrl = 'https://transpotation-nest.onrender.com/v1/';
 
 export const instance = axios.create({
     baseURL: apiUrl,
